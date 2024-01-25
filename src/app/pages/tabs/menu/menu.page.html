@@ -1,0 +1,18 @@
+<div class="header_section">
+  <div class="left">
+    <div>
+      <h3>Menu</h3>
+    </div>
+  </div>
+</div>
+
+<ion-content [fullscreen]="true">
+  <div class="body_section">
+    <div class="call_history menus">
+      <div class="call_box" *ngFor="let menu of menuLs">
+        <ion-icon [name]="menu.icon"></ion-icon>
+        <p>{{menu.text}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

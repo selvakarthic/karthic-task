@@ -1,0 +1,55 @@
+<!-- <ion-header [translucent]="true"> -->
+  <div class="header_section">
+    <div class="left">
+      <h3>Firstclass Mentor</h3>
+      <h4>Karthic Sellvarajan</h4>
+      <div class="process_bar"><ion-icon name="swap-vertical-outline"></ion-icon><span>Default process</span></div>
+    </div>
+    <div class="right">
+      <ion-icon name="cafe"></ion-icon>
+      <ion-icon name="power"></ion-icon>
+    </div>
+  </div>
+<!-- </ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class="body_section">
+    <div class="chip_container">
+      <ion-chip [ngClass]="{'selected': filter.isSelected}" *ngFor="let filter of filterLs" (click)="onSelectFIlter(filter.id)">{{filter.text}} </ion-chip>
+    </div>
+    <p class="sub_header">INBOUND</p>
+    <div class="call_history">
+      <div *ngFor="let call of callLogTypeLs" class="call_box">
+        <ion-icon [name]="call.icon"></ion-icon>
+        <p>{{call.calls}}</p>
+        <span>{{call.name}}</span>
+      </div>
+    </div>
+    <div class="talktime_section">
+      <div class="average_cal">
+        <p>Avg. Talktime</p>
+        <p>{{averageTalkTime}}</p>
+      </div>
+      <div class="average_cal">
+        <p>Total Talktime</p>
+        <p>{{totalTalkTime}}</p>
+      </div>
+      <div class="average_cal">
+        <p>Break Time</p>
+        <p>N/A</p>
+      </div>
+      <div class="average_cal">
+        <p>Idle Time</p>
+        <p>N/A</p>
+      </div>
+      <div class="average_cal">
+        <p>Wrap-up Time</p>
+        <p>N/A</p>
+      </div>
+      <div class="average_cal">
+        <p>Avg.Login Time</p>
+        <p>N/A</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

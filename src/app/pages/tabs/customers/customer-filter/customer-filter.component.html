@@ -1,0 +1,29 @@
+<div class="header_section no_bg">
+  <div class="left">
+    <h3>Filters</h3>
+  </div>
+  <div class="right">
+    <p (click)="onFilterApply()">Done</p>
+  </div>
+</div>
+
+<ion-content>
+  <div class="body_section">
+    <div>
+      <p>Sort By</p>
+        <div class="call_history">
+          <div class="call_box" *ngFor="let sort of sortByLs" [ngClass]="{'selected' : sort.isSelected}" (click)="selectSortBy(sort.id)">
+            <ion-icon [name]="sort.icon"></ion-icon>
+            <p>{{sort.text}}</p>
+            <p>{{sort.description}}</p>
+          </div>
+        </div>
+    </div>
+    <div>
+      <p class="sub_text">Filter by Status</p>
+      <div class="chip_container more_chips">
+        <ion-chip *ngFor="let status of statusFilter" [ngClass]="{'selected' : status.isSelected}" (click)="selectStatus(status.id)">{{status.text}}</ion-chip>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,9 @@
+.allocations {
+    flex-direction: column;
+}
+
+ion-searchbar {
+    ion-icon {
+        display: none;
+    }
+}

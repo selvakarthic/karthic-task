@@ -1,0 +1,41 @@
+<div class="header_section">
+  <div class="left">
+    <div *ngIf="!onShowSearch;else search">
+      <h3>Allocations</h3>
+    </div>
+    <ng-template #search>
+      <ion-icon name="arrow-back-outline" (click)="onToggleShowSearch()"></ion-icon>
+      <ion-searchbar [placeholder]="searchPlaceholder" (ionInput)="onSearch($event)"></ion-searchbar>
+    </ng-template>
+  </div>
+  <div class="right">
+    <ion-icon name="search-outline" (click)="onToggleShowSearch()"></ion-icon>
+  </div>
+</div>
+
+<ion-content>
+  <div class="body_section">
+    <ion-refresher slot="fixed" (ionRefresh)="initializePage()">
+      <ion-refresher-content>
+      </ion-refresher-content>
+    </ion-refresher>
+    <p class="sub_header">Total - {{filteredAllocationLs.length}}</p>
+    <div class="allocation_list">
+      <div class="call_history allocation" *ngFor="let alloc of filteredAllocationLs">
+        <div class="left">
+          <p class="sub_text">{{alloc.status}}</p>
+          <p>{{alloc.name}}</p>
+        </div>
+        <div class="right">
+          <div class="text">
+            <p class="sub_text">{{alloc.time | date : 'hh.mm a,d MMM'}}</p>
+            <p class="sub_text">By : {{alloc.assigneeName}}</p>
+          </div>
+          <div  class="icon">
+            <a [href]="alloc.phoneNumber"><ion-icon name="call"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

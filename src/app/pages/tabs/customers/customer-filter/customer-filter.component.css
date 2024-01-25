@@ -1,0 +1,8 @@
+.sort_list {
+    display: flex;
+}
+
+.selected {
+    --background: #00213f;
+    --color: #adefd1;
+}

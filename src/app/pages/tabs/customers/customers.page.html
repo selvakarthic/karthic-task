@@ -1,0 +1,42 @@
+<div class="header_section">
+  <div class="left">
+    <div *ngIf="!onShowSearch;else search">
+      <h3>Customers</h3>
+    </div>
+    <ng-template #search>
+      <ion-icon name="arrow-back-outline" (click)="onToggleShowSearch()"></ion-icon>
+      <ion-searchbar [placeholder]="searchPlaceholder" (ionInput)="onSearch($event)"></ion-searchbar>
+    </ng-template>
+  </div>
+  <div class="right">
+    <ion-icon name="search-outline" (click)="onToggleShowSearch()"></ion-icon>
+    <ion-icon name="options-outline" (click)="openFilterModal()"></ion-icon>
+  </div>
+</div>
+
+<ion-content>
+  <div class="body_section">
+  <ion-refresher slot="fixed" (ionRefresh)="initializePage()">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <p class="sub_header">Total - {{filteredCustomerLs.length}}</p>
+  <div class="allocation_list">
+    <div class="call_history allocation" *ngFor="let customer of filteredCustomerLs">
+      <div class="left">
+        <p class="sub_text">{{customer.status}}</p>
+        <p>{{customer.name}}</p>
+      </div>
+      <div class="right">
+        <div class="text">
+          <p class="sub_text">{{customer.dateAndTime | date : 'hh.mm a,d MMM'}}</p>
+          <p class="sub_text">By : {{customer.assigneeName}}</p>
+        </div>
+        <div class="icon">
+          <a [href]="customer.phoneNumber"><ion-icon name="call"></ion-icon></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>
