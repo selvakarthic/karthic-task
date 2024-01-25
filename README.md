@@ -1,5 +1,5 @@
 For running project use
 
---> npm install --legacy-peer-deps
+1. npm install --legacy-peer-deps
 
---> ng serve
+2. ng serve
